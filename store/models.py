@@ -14,6 +14,7 @@ class Collection(models.Model):
 
 class Produckt(models.Model):
     title = models.CharField(max_length=255)
+    slug = models.SlugField(default="-")
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     inventory = models.IntegerField()
@@ -33,12 +34,13 @@ class Customer(models.Model):
         (MEMBERSHIP_GOLD, "GOLD")
     ]
 
-    first_name = models.CharField(max_length=50)
+    given_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=15)
     birth_date = models.DateField(null=True)
     membership = models.CharField(max_length=1 ,choices= MEMBERSHIP_CHOICES , default= MEMBERSHIP_BRONZE)
+    
     
 
 class Order(models.Model):
@@ -66,6 +68,7 @@ class Address(models.Model):
     stret = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    zip = models.FileField(null=True)
 
 
 class Card(models.Model):

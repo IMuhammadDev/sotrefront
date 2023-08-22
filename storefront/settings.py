@@ -39,13 +39,14 @@ INSTALLED_APPS = [
     "playground",
     "debug_toolbar",
     "store",
-    "tags"
+    "tags",
+    "likes"
 ]
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.curity.curityMiddleware",
-    "django.contrib.ssions.middleware.ssionMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -81,10 +82,14 @@ WSGI_APPLICATION = "storefront.wsgi.application"
 # Databa
 # https://docs.djangoproject.com/en/4.2/ref/ttings/#databas
 
-DATABAS = {
+DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BA_DIR / "db.sqlite3",
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
