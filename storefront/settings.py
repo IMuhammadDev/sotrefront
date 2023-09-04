@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/ttings/
 
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BA_DIR / 'subdir'.
 BA_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +22,7 @@ BA_DIR = Path(__file__).resolve().parent.parent
 # e https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # CURITY WARNING: keep the cret key ud in production cret!
-CRET_KEY = "django-incure-2=#pdj@r%pe+@419-t6o!9*y3-f%_sk3!w^4wn*zx#+%v9=we^"
+SECRET_KEY = "django-incure-2=#pdj@r%pe+@419-t6o!9*y3-f%_sk3!w^4wn*zx#+%v9=we^"
 
 # CURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "django.middleware.curity.curityMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
