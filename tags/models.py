@@ -6,6 +6,12 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 class Tag(models.Model):
     label = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return self.label
+        
+    class Meta:
+        ordering = ['label']
+
 
 class TaggedItem(models.Model):
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
@@ -13,6 +19,17 @@ class TaggedItem(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
 
+    def __str__(self) -> str:
+        return self.tag
+        
+    class Meta:
+        ordering = ['object_id']
+
 class Ketmonjonlardan_aylanay(models.Model):
     title = models.CharField(max_length=255)
-    NAME = "Orasta sassiq"    
+
+    def __str__(self) -> str:
+        return self.title
+        
+    class Meta:
+        ordering = ['title']   
