@@ -12,3 +12,7 @@ class TaggedItem(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
+
+class Ketmonjonlardan_aylanay(models.Model):
+    title = models.CharField(max_length=255)
+    NAME = "Orasta sassiq"    
